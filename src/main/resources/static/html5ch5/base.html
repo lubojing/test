@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>链接的使用</title>
+    <style type="text/css">
+        a {
+            color: teal;
+            text-decoration: none;
+        }
+        a:visited {
+            color: silver;
+            text-decoration: none;
+        }
+        a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        div a {
+            color: teal;
+            text-decoration: none;
+            border-bottom:5px dotted red;
+        }
+        .style1 a{
+            color: teal;
+            text-decoration: none;
+            border-bottom:5px dashed red;
+        }
+        .style2 a{
+            color: teal;
+            text-decoration: none;
+            border-bottom:5px double red;
+        }
+        .style3 a{
+            color: teal;
+            text-decoration: none;
+            padding-bottom: 15px;
+            background: url("../image/468_60.png") bottom repeat-x;
+        }
+    </style>
+</head>
+<body>
+    <h3>图像的链接</h3>
+    <a href="A.html">
+        <img src="../image/468_60.png" border="0" />
+    </a>
+
+    <h3>链接邮箱地址的方法</h3>
+    <a href="mailto:531089548@qq.com?subject=联系我;body=告诉我们你对网页设计的想法?">
+        告诉我们你对网页设计的想法？
+    </a>
+
+    <h3>同一页面实现链接</h3>
+    <a href="#概述">概述</a>
+    <br><a href="#世界博览会的历史与由来">世界博览会的历史与由来</a>
+
+    <h3><a id=概述></a>概述</h3>
+    <br>世界博览会（World Exhibition or Exposition,简称World Expo）是一项由主办国政府组织或政委委托有关部门举办的较大影响和历史悠久的国际性博览会。
+    <br>世界展览会的会场不单是展示技术和商品。
+
+    <h3><a id=世界博览会的历史与由来></a>世界博览会的历史与由来</h3>
+    <br>世界博览会的历史与由来世界博览会（World Exhibition or Exposition,简称World Expo）是一项由主办国政府组织或政委委托有关部门举办的较大影响和历史悠久的国际性博览会。
+    <br>世界博览会的历史与由来世界展览会的会场不单是展示技术和商品。
+
+    <h3>美观链接的状态</h3>
+    <h3>使用css属性修改文本链接颜色</h3>
+    <div><a href="A.html">注意文本颜色前后的变化</a></div>
+    <div class="style1"><a href="A.html">注意文本颜色前后的变化</a></div>
+    <div class="style2"><a href="A.html">注意文本颜色前后的变化</a></div>
+    <div class="style3"><a href="A.html">使用自定义下划线dfdfdfdfdfdffffffffffffffffffffffffffffffffffffffff</a></div>
+
+    <h3>热点图像链接</h3>
+    <img src="../image/background.jpg" usemap="#Map">
+    <map id="Map">
+        <area shape="circle" coords="200,200,200" href="A.html" />
+        <area shape="rect" coords="264,44,293,74" href="A.html" />
+    </map>
+
+    <h3>在新窗口显示</h3>
+    <a href="A.html" target="_blank">新窗口显示链接窗口</a>
+</body>
+</html>
