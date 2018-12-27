@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用样式表修饰表单的页面</title>
+    <style type="text/css">
+        body {
+            background-color: white;
+        }
+        fieldset {
+            border: 2px dashed red;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-family: 微软雅黑;
+            font-size: 90%;
+            letter-spacing: -1px;
+            font-weight: bold;
+            line-height: 1.1;
+            color: #fff;
+            background: orange;
+            border: 1px solid #333;
+            padding: 2px 6px;
+        }
+        h1 {
+            font-family: 微软雅黑;
+            font-size: 175%;
+            letter-spacing: -1px;
+            font-weight: normal;
+            line-height: 1.1;
+            color: #333;
+        }
+        label {
+            width: 140px;
+            height: 32px;
+            margin-top: 3px;
+            margin-right: 2px;
+            padding-top: 11px;
+            padding-left: 6px;
+            background-color: maroon;
+            float: left;
+            display: block;
+            font-family: 幼圆;
+            font-size: 115%;
+            letter-spacing: -1px;
+            font-weight: normal;
+            line-height: 1.1;
+            color: yellow;
+        }
+        .form {
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 750px;
+            margin: auto;
+            padding: 10px;
+        }
+        #top {
+            width: 680px;
+            height: 50px;
+        }
+        #leftSide {
+            width: 530px;
+            padding-top: 30px;
+            float: left;
+        }
+        .clear {
+            clear: both;
+        }
+        .div_texbox {
+            width: 347px;
+            float: right;
+            height: 35px;
+            margin-top: 3px;
+            padding-top: 5px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            background-color: #E6E6E6;
+        }
+        .textbox, .username, .password {
+            background-color: #FFFFFF;
+            background-repeat: no-repeat;
+            background-position: left;
+            color: black;
+            font: normal 18px 微软雅黑;
+            padding: 3px 5px 3px 19px;
+        }
+        .textbox:focus, .textbox:hover, .username:focus, .password:focus, .username:hover, .password:hover {
+            background-color: orange;
+        }
+        .button_div {
+            width:287px;
+            float:right;
+            background-color: #fff;
+            border:1px solid #ccc;
+            text-align: right;
+            height: 35px;
+            margin-top: 3px;
+            padding: 5px 32px 3px;
+        }
+        .buttons {
+            background: #e3e3db;
+            font-size: 12px;
+            color: #989070;
+            padding: 6px 14px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #fff #d8d8d0 #d8d8d0 #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            var register=document.getElementById("register");
+            //注册监听表单中的invalid事件
+            register.addEventListener("invalid",invalidHandler,true);
+            document.getElementById("age").setCustomValidity("年龄不能通过校验！");
+        }
+        function addError(err){
+            document.getElementById("error").innerHTML += "* "+err+"<br/>";
+        }
+        function clearError(){
+            document.getElementById("error").innerHTML ="";
+        }
+        function invalidHandler(evt){
+            var validity=evt.srcElement.validity;
+            if(validity.customError){
+                str = evt.srcElement.validationMessage;
+            }else{
+                if(validity.valueMissing){
+                    str +="不能为空；";
+                }
+                if(validity.typeMismatch){
+                    str +="与类型不匹配；";
+                }
+                if(validity.patternMismatch){
+                    str +="与pattern正则不匹配；";
+                }
+                if(validity.tooLong){
+                    str +="字符过长；";
+                }
+                if(validity.rangeUnderflow){
+                    str +="不能小于最小值；";
+                }
+                if(validity.rangeOverflow){
+                    str +="不能大于最大值；";
+                }
+                if(validity.stepMismatch){
+                    str +="不符合step特性所推出的规则；";
+                }
+                str = evt.srcElement.title + str;
+            }
+        }
+        addError(str);
+        evt.stopPropagation();//阻止事件冒泡
+        evt.preventDefault();
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+            <h1>请填写这张表格：</h1>
+        </div>
+        <div id="leftSide">
+            <fieldset>
+                <legend>注册信息：</legend>
+                <form action="login.php" method="post" class="form">
+                    <label for="username">注册名：</label>
+                    <div class="div_texbox">
+                        <input name="username" type="text" class="username" id="username" value="depp" />
+                    </div>
+                    <label for="password">密码：</label>
+                    <div class="div_texbox">
+                        <input name="password" type="password" class="password" id="password" value="password" />
+                    </div>
+                    <div class="button_div">
+                        <input name="Submit" type="button" value="确定" class="buttons" />
+                    </div>
+                </form>
+                <div class="clear"></div>
+            </fieldset>
+            <hr size="1">
+            <fieldset>
+                <legend>个人信息：</legend>
+                <form id="register" action="..." method="post" class="form">
+                    <label for="name">姓名：</label>
+                    <div class="div_texbox">
+                        <input name="name" type="text" class="textbox" id="name" title="姓名" placeholder="请输入您的姓名" required />
+                    </div>
+                    <label for="address">地址：</label>
+                    <div class="div_texbox">
+                        <input name="address" type="text" class="textbox" id="address" required />
+                    </div>
+                    <label for="city">所属区：</label>
+                    <div class="div_texbox">
+                        <input name="city" type="text" class="textbox" id="city" value="浦东新区" />
+                    </div>
+                    <label for="age">年龄：</label>
+                    <div class="div_texbox">
+                        <input name="age" type="range" min="0" max="99" step="1"  id="age" value="20" onchange="displayAage.value=this.value"/>
+                        <output name="displayAage">20</output>
+                    </div>
+                    <div class="button_div">
+                        <input name="Submit" type="button" value="确定" class="buttons" />
+                        <input type="submit" name="submit1" value="提交" onclick="clearError()" />
+                    </div>
+                    <div id="error"></div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</body>
+</html>

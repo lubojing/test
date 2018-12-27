@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <style type="text/css">
+        div {
+            width: 400px;
+            font: 150% 微软雅黑;
+            margin: auto;
+            padding: 10px;
+            text-align: right;
+        }
+        input {
+            font:50% 微软雅黑;
+        }
+        .leftblock {
+            width: 200px;
+            font: 120% 微软雅黑;
+            text-align: right;
+        }
+        .rightblock {
+            width: 300px;
+            left: 120px;
+            padding: 5px;
+            border: 2px dotted;
+            text-align: left;
+        }
+        h1 {
+            font: 80% 微软雅黑;
+            margin: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        function CheckForm(frm){
+            if(frm.patterntest.checkValidity()){
+
+            }else{
+                frm.patterntest.setCustomValidity("6位1到9的数字");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <form action="..." method="post">
+            text表单：<input name="name" type="text" size="20" maxlength="13"><br>
+            placeholder关键字：<input name="placeholder" type="text" size="20" maxlength="13" placeholder="请输入关键字"><br>
+            datalist关键字：<input name="datalist" type="text" list="datalist1"/>
+            <datalist id="datalist1">
+                <option value="test1@test.com">test1@test.com</option>
+                <option value="test2@test.com">test2@test.com</option>
+            </datalist>
+            password表单：<input name="password" type="password" size="20" maxlength="21"><br>
+            textarea多行：<textarea name="some" rows="10" cols="20" value="say">请文明用语：</textarea><br>
+            <fieldset>
+                <legend>表单域集合</legend>
+                select下拉：<select name="上海" >
+                    <option>黄浦江</option>
+                    <option>蛇口区</option>
+                </select><br>
+                optgroup下拉分组：<select name="上海" size="3">
+                    <optgroup label="team1">
+                        <option>黄浦江</option>
+                        <option>蛇口区</option>
+                        <option>黄浦江</option>
+                        <option>蛇口区</option>
+                        <option>黄浦江</option>
+                        <option>蛇口区</option>
+                    </optgroup>
+                    <optgroup label="team2">
+                        <option>黄浦江2</option>
+                        <option>蛇口区2</option>
+                    </optgroup>
+                </select><br>
+            </fieldset>
+        </form>
+    </div>
+    <div class="leftblock">注册信息：checkbox</div>
+    <div class="rightblock">
+        <form action="..." method="post">
+            <input name="truename" type="checkbox" checked="checked">使用真实姓名
+            <h1>实名制可以方便您更好地和朋友交流</h1>
+            <input name="address" type="checkbox" checked="checked">显示我的地址
+            <h1>如果去除勾选，其他用户将无法查到你的地址</h1>
+        </form>
+    </div>
+    <div class="leftblock">注册信息：radio</div>
+    <div class="rightblock">
+        <form action="..." method="post">
+            <input name="onechoice" type="radio" value="one" checked="checked">使用真实姓名
+            <h1>实名制可以方便您更好地和朋友交流</h1>
+            <input name="onechoice" type="radio" value="two">显示我的地址
+            <h1>如果去除勾选，其他用户将无法查到你的地址</h1>
+            图片按钮image<input type="image" src="../image/468_60.png" alt="确定"><br>
+            按钮button<input type="button" value="运行" onclick="alert('ss')" ><br>
+            url类型<input type="url" name="webUrl" id="webUrl" value="http://www.baidu.com" /><br>
+            email类型<input type="email" name="myEmail" value="ddd@134.com" /><br>
+            range类型<input type="range" name="volume" min="0" max="20" step="0.2" /><br>
+            <output name="x"></output>
+            number类型<input type="number" name="score" min="0" max="10" step="0.5" /><br>
+            tel类型<input type="tel" name="tel" /><br>
+            search类型<input type="search" name="search" /><br>
+            color类型<input type="color" name="color" /><br>
+            date类型<input type="date" name="date" /><br>
+            month类型<input type="month" name="month"/><br>
+            week类型<input type="week" name="week" /><br>
+            time类型<input type="time" name="time" /><br>
+            datetime-local类型<input type="datetime-local" name="datetime-local" /><br>
+            <input type="submit" value="确定">
+            <input type="reset" value="恢复">
+        </form>
+    </div>
+
+    <div class="leftblock">上传文件：file</div>
+    <div class="rightblock">
+        <form action="..." method="post" enctype="multipart/form-data">
+            <input type="file" name="uploadfile" id="uploadfile" />
+        </form>
+    </div>
+    <div class="leftblock">提交：formaction</div>
+    <div class="rightblock">
+        <form action="formaction1" method="post" >
+            必填校验required:<input name="name" type="text" required/><br>
+            正则验证pattern:<input name="patterntest" type="text" pattern="[0-9]{6}"/><br>
+            <keygen name="security">1</keygen><br>
+            <input type="submit" value="提交到page1" formaction="?page=1" formmethod="get" />
+            <input type="submit" value="提交到page2" formaction="?page=2" />
+            <input type="submit" value="提交" onclick="return CheckForm(this.form)"/>
+        </form>
+    </div>
+</body>
+</html>
