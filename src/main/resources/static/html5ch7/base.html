@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音频和视频</title>
+    <script type="text/javascript">
+        function Forward(){
+            var el = document.getElementById("myPlayer");
+            var time = el.currentTime;
+            el.currentTime = time+600;
+        }
+    </script>
+</head>
+<body>
+    <video id="myPlayer" width="600" height="400" src="死侍1.mp4" controls preload="auto">浏览器不支持</video><br>
+    <input type="button" value="快进" onclick="Forward()" />
+</body>
+</html>
