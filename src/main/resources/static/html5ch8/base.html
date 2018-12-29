@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖放页面的内容</title>
+    <script type="text/javascript">
+        function DragStart(){
+            var source = document.getElementById('dragSource');
+            source.addEventListener('dragstart',function (e){
+                e.dataTransfer.setData('text/plain',e.target.innerHTML);
+                e.dataTransfer.effectAllowed = "copy";
+            },false);
+        }
+        window.addEventListener('load',DragStart,false);
+        function DragOver() {
+            var target = document.getElementById('dropTarget');
+            target.addEventListener('dragover',function(e){
+                this.className = "dragover";
+                e.preventDefault();
+            },false);
+        }
+        window.addEventListener('load',DragOver,false);
+        function Drop() {
+            var target = document.getElementById('dropTarget');
+            target.addEventListener('drop',function (e) {
+                var data = e.dataTransfer.getData('text/plain');
+                this.innerHTML += data;
+                e.dataTransfer.dropEffect = "copy";
+                this.className = "";
+            },false);
+        }
+        window.addEventListener('load',Drop,false);
+
+        /**
+         * 展示多个文件
+         * @constructor
+         */
+        function ShowFiles() {
+            var fileList = document.getElementById("files").files;
+            var msg = document.getElementById("msg");
+            var file;
+            for(var i=0; i<fileList.length; i++){
+                file = fileList[i];
+                msg.innerHTML += file.name + ";<br />";
+            }
+        }
+
+        /**
+         * FileReader接口的读取
+         * @param action
+         * @constructor
+         */
+        function ReadAs(action) {
+            var blob = document.getElementById("files").files[0];
+            if(blob){
+                var reader = new FileReader();
+                switch(action.toLowerCase()){
+                    case "binarystring":
+                        reader.readAsBinaryString(blob);
+                        break;
+                    case "arraybuffer":
+                        reader.readAsArrayBuffer(blob);
+                        break;
+                    case "text":
+                        reader.readAsText(blob);
+                        break;
+                    case "dataurl":
+                        reader.readAsDataURL(blob);
+                        break;
+                }
+                //接口的事件
+                //loadstart:开始读取数据时触发的事件
+                //progress:正在读取数据时触发的事件
+                //load:成功完成数据读取时触发的事件
+                //abort:中断读取数据时触发的事件
+                //error:读取数据发送错误时触发的事件
+                //loadend:结束读取数据时触发的事件
+                reader.onload = function (e) {
+                    var result = this.result;
+                    if(action.toLowerCase()=="dataurl"){
+                        document.getElementById("result").innerHTML = "<img src='" + result + "' />";
+                    }else{
+                        document.getElementById("result").innerHTML = result;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="dragSource" draggable="true">托这里<img src="../image/468_60.png" width="75" height="72"> </div>
+    <div id="dropTarget">1</div>
+    <div>
+        <h1>选择多个文件上传</h1>
+        <form action="" method="post">
+            <input type="file" id="files" multiple />
+            <input type="button" value="显示文件" onclick="ShowFiles()" />
+            <input type="button" value="读取为数据缓存区" onclick="ReadAs('ArrayBuffer')" />
+            <input type="button" value="读取为二进制" onclick="ReadAs('BinaryString')" />
+            <input type="button" value="读取为文本" onclick="ReadAs('text')" />
+            <input type="button" value="读取为图像" onclick="ReadAs('dataURL')" />
+            <p id="msg"></p>
+            <p id="result"></p>
+        </form>
+    </div>
+</body>
+</html>

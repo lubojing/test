@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>把图片拖入浏览器</title>
+    <style type="text/css">
+        #dropTarget {
+            width: 300px;
+            height: 300px;
+            margin: 10px 0 0 0;
+            border: 1px solid #015EAC;
+        }
+        #dropTarget img {
+            width: 100px;
+            height: 60px;
+            margin: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        var target;
+        //drop事件处理函数
+        function dropHandle(e){
+            var fileList = e.dataTransfer.files,fileType;
+            for(var i=0; i<fileList.length; i++){
+                fileType = fileList[i].type;
+                if(fileType.indexOf('image') == -1){
+                    alert('请拖拽图片');
+                    return;
+                }
+                loadImg(fileList[i]);
+            }
+        }
+        //加载指定的图片文件，并追加至target对象的元素中
+        function loadImg(file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var oImg = document.createElement('img');
+                oImg.src = this.result;
+                target.appendChild(oImg);
+            }
+            reader.readAsDataURL(file);
+        }
+        //给元素添加监听
+        window.onload = function () {
+            target = document.getElementById('dropTarget');
+            target.addEventListener('dragover',function (e) {
+                e.preventDefault();
+            },false);
+            target.addEventListener('drop',dropHandle,false);
+        }
+    </script>
+</head>
+<body>
+    <div>把图片拖放到下面的方框</div>
+    <div id="dropTarget"></div>
+</body>
+</html>
