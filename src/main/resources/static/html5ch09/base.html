@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用Storage对象保存页面的内容</title>
+    <script type="text/javascript">
+        var flag = 1;
+        window.sessionStorage.clear();
+        //保存数据到sessionStorage
+        function SaveStorage(frm) {
+            //使用表单数据建立json对象
+            var jsonObject = new Object();
+            jsonObject.name = frm.name.value;
+            jsonObject.age = frm.age.value;
+            jsonObject.email = frm.email.value;
+            jsonObject.phone = frm.phone.value;
+            //序列化json对象为字符串数据
+            var stringData = JSON.stringify(jsonObject);
+            //存储字符串数据到Storage
+            var storage = window.sessionStorage;
+            storage.setItem("key"+flag,stringData);
+            flag++;
+        }
+        //遍历并显示sessionStorage
+        function Show() {
+            var storage = window.sessionStorage;
+            var result = "";
+            for(var i=0; i<storage.length; i++){
+                var key = storage.key(i);
+                var stringData = storage.getItem(key);
+                var jsonObject = JSON.parse(stringData);
+                result += "姓名："+jsonObject.name+"；年龄："+jsonObject.age+"<br>";
+            }
+            document.getElementById("formdata").innerHTML = result;
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" name="form1" method="post" action="" >
+        <table width="100%" border="1" bordercolor="#CCCCCC" cellpadding="3" cellspacing="0">
+            <tr>
+                <td>姓名</td>
+                <td><input type="text" name="name" id="name" /></td>
+            </tr>
+            <tr>
+                <td>年龄</td>
+                <td><input type="text" name="age" id="age" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" id="eamil" /></td>
+            </tr>
+            <tr>
+                <td>电话</td>
+                <td><input type="text" name="phone" id="phone" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="保存" onclick="SaveStorage(this.form)" />
+                    <input type="button" value="显示" onclick="Show()"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div id="formdata"></div>
+</body>
+</html>
