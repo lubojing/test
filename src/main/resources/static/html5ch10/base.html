@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas标签使用</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+        function DrawText() {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            context.font = "98px 黑体";
+            context.fillStyle = "#036";
+            context.textAlign = "center";
+            //执行绘制
+            context.fillText("囧",100,120,200);
+            //2绘制黄色的矩形
+            var canvas2 = document.getElementById("canvas2");
+            var context2 = canvas2.getContext("2d");
+            //绘制矩形边框
+            context2.strokeStyle = "#000";
+            context2.lineWidth = 1;
+            // context2.strokeRect(50,50,150,100);
+            //填充矩形形状
+            context2.fillStyle = "#f90";
+            // context2.fillRect(60,60,100,100);
+            //绘制圆形
+            context2.beginPath();
+            context2.arc(150,100,50,0,Math.PI*2,true);
+            context2.rect(50,50,100,100);
+            context.closePath();
+            context2.stroke();
+            context2.fill();
+        }
+        window.addEventListener("load",DrawText,true);
+    </script>
+</head>
+<body stype="text-align:center">
+    <canvas id="canvas" width="200" height="200">你的浏览器不支持该功能！</canvas>
+    <canvas id="canvas2" width="200" height="200">你的浏览器不支持该功能！</canvas>
+</body>
+</html>
