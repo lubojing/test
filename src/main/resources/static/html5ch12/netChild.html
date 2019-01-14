@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS属性选择符</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        table td {
+            font-size: 12px;
+            padding: 0 3px;
+            line-height: 22px;
+        }
+        tr:nth-child(even) {
+            background: #e6e6e6;
+        }
+        tr:first-child {
+            background: -webkit-gradient(linear, left top, left bottom, from(#dbdbdb), to(#1c43cc));
+            background: -ms-linear-gradient(left, #dbdbdb ,#ff0000);
+        }
+        tr:last-child {
+            background: #d6d6d6;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" border="1" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>1编号</td>
+            <td>标题</td>
+            <td>作者</td>
+            <td>时间</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</body>
+</html>
