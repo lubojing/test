@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>配色方案表</title>
+    <style type="text/css">
+        body{
+            background: url("../image/background.jpg") 120px 110px no-repeat,
+                url("../image/468_60.png") 400px 10px no-repeat,
+                url("../image/linyun.jpg") no-repeat;
+        }
+        .hsl {
+            height: 20px;
+            border: 1px solid #f00;
+            padding: 10px;
+            height: 170px;
+            background-color: hsl(158,30%,60%);
+            color: hsl(0,100%,50%);
+            font-size: 12px;
+            text-align: center;
+            line-height: 25px;
+            width: 320px;
+        }
+        ul {
+            width: 320px;
+            margin: 0;
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+        }
+        li{
+            float: left;
+            margin: 1px 0 0 1px;
+            width: 50px;
+            height: 15px;
+            list-style: none;
+            font-size: 12px;
+            line-height: 15px;
+        }
+        li img {
+            width: 50px;
+            height: 15px;
+            opacity: 0.5;
+        }
+        li img:hover{
+            opacity: 1;
+        }
+        .bg{
+            position: absolute;
+            background-color: hsla(0, 0%, 50%, 0.5);
+            top: 0;
+            left: 0;
+        }
+        .box {
+            position: absolute;
+            top: 130px;
+            left: 150px;
+            z-index: 99;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: #fff;
+            line-height: 20px;
+            font-size: 12px;
+            color: #666;
+            font-weight: bold;
+        }
+        .box a{
+            display: block;
+            position: absolute;
+            z-index: 100;
+            top: -8px;
+            left: 498px;
+            -webkit-border-radius: 9px;
+            -moz-border-radius: 9px;
+            border-radius: 9px;
+            border: 2px solid #e4e4e4;
+            background-color: #bbb;
+            line-height: 14px;
+            width: 14px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #FFF;
+            text-decoration: none;
+        }
+        .box img{
+            width: 300px;
+            height: 200px;
+        }
+        /*第一行*/
+        li:nth-child(8) {background-color: hsl(3,100%,100%);}
+        li:nth-child(9) {background-color: hsl(3,75%,100%);}
+        li:nth-child(10) {background-color: hsl(3,50%,100%);}
+        li:nth-child(11) {background-color: hsl(3,25%,100%);}
+        li:nth-child(12) {background-color: hsl(3,0%,100%);}
+        /*第2行*/
+        li:nth-child(14) {background-color: hsl(30,100%,75%);}
+        li:nth-child(15) {background-color: hsl(30,75%,75%);}
+        li:nth-child(16) {background-color: hsl(30,50%,75%);}
+        li:nth-child(17) {background-color: hsl(30,25%,75%);}
+        li:nth-child(18) {background-color: hsl(30,0%,75%);}
+        /*第3行*/
+        li:nth-child(20) {background-color: hsl(30,100%,50%);}
+        li:nth-child(21) {background-color: hsl(30,75%,50%);}
+        li:nth-child(22) {background-color: hsl(30,50%,50%);}
+        li:nth-child(23) {background-color: hsl(30,25%,50%);}
+        li:nth-child(24) {background-color: hsl(30,0%,50%);}
+        /*第4行*/
+        li:nth-child(26) {background-color: hsl(0,100%,25%);}
+        li:nth-child(27) {background-color: hsl(0,75%,25%);}
+        li:nth-child(28) {background-color: hsl(0,50%,25%);}
+        li:nth-child(29) {background-color: hsl(0,25%,25%);}
+        li:nth-child(30) {background-color: hsl(0,0%,25%);}
+        /*第5行*/
+        li:nth-child(32) {background-color: hsl(0,100%,0%);}
+        li:nth-child(33) {background-color: hsl(0,75%,0%);}
+        li:nth-child(34) {background-color: hsl(0,50%,0%);}
+        li:nth-child(35) {background-color: hsl(0,25%,0%);}
+        li:nth-child(36) {background-color: hsl(0,0%,0%);}
+        /*第6行*/
+        li:nth-child(38) {background-color: hsla(40,50%,50%,0.1);}
+        li:nth-child(39) {background-color: hsla(40,50%,50%,0.2);}
+        li:nth-child(40) {background-color: hsla(40,50%,50%,0.3);}
+        li:nth-child(41) {background-color: hsla(40,50%,50%,0.5);}
+        li:nth-child(42) {background-color: hsla(40,50%,50%,0.8);}
+        /*第7行*/
+        li:nth-child(44) {background-color: rgba(250,0,0,0.1);}
+        li:nth-child(45) {background-color: rgba(250,0,0,0.3);}
+        li:nth-child(46) {background-color: rgba(250,0,0,0.5);}
+        li:nth-child(47) {background-color: rgba(250,0,0,0.7);}
+        li:nth-child(48) {background-color: rgba(250,0,0,0.9);}
+        /*第8行*/
+        li:nth-child(49) {opacity: 0.3;}
+        li:nth-child(50) {opacity: 0.5;}
+        li:nth-child(51) {opacity: 0.8;}
+    </style>
+    <script type="text/javascript">
+        function popbox(obj) {
+            document.body.style.overflow="hidden";
+            var w = window.innerWidth;
+            var h = window.innerHeight;
+            var bgdiv = document.createElement("div");
+            bgdiv.style.width = w + "px";
+            bgdiv.style.height = h + "px";
+            bgdiv.className = "bg";
+            bgdiv.id = "bg";
+            document.body.appendChild(bgdiv);
+            //创建图片浏览层
+            var box = document.createElement("div");
+            box.id = "floatbox";
+            box.className = "box";
+            box.innerHTML = "<a href='javascript:closebox()'>&times;</a>";
+            box.innerHTML += "<img src="+obj.src+"/>";
+            box.style.left = (w-510)/2+"px";
+            box.style.top = (h-405)/2+"px";
+            document.body.appendChild(box);
+        }
+        //关闭图片预览
+        function closebox(){
+            document.body.style.overflow="";
+            var bg = document.getElementById("bg");
+            bg.parentNode.removeChild(bg);
+            var box = document.getElementById("floatbox");
+            box.parentNode.removeChild(box);
+        }
+    </script>
+</head>
+<body>
+    <div class="hsl">
+        <div>色调：0 红色</div>
+        <div>竖向： 亮度： 横向： 饱和度</div>
+        <ul>
+            <li></li><li>100%</li><li>73%</li><li>50%</li><li>25%</li><li>0%</li>
+            <li>100%</li><li></li><li></li><li></li><li></li><li></li>
+            <li>73%</li><li></li><li></li><li></li><li></li><li></li>
+            <li>50%</li><li></li><li></li><li></li><li></li><li></li>
+            <li>25%</li><li></li><li></li><li></li><li></li><li></li>
+            <li>0%</li><li></li><li></li><li></li><li></li><li></li>
+            <li>hsla</li><li></li><li></li><li></li><li></li><li></li>
+            <li>Rgba</li><li></li><li></li><li></li><li></li><li></li>
+            <li><img src="../image/468_60.png" alt="鸟"/></li>
+            <li><img src="../image/468_60.png" alt="鸟"/></li>
+            <li><img src="../image/468_60.png" alt="鸟"/></li>
+            <li><img src="../image/background.jpg" alt="图片" onclick="popbox(this)"/></li>
+        </ul>
+    </div>
+</body>
+</html>

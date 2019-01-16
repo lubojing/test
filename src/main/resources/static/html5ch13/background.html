@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景</title>
+    <style type="text/css">
+        div {
+            padding: 50px;
+            border: 50px solid rgba(255,153,0,0.3);
+            height: 100px;
+            width: 200px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 0 1px #f00, -2px 0 1px #f00, 0 2px 1px #f00,0 -2px 1px #f00;
+            background-image: url("../image/linyun.jpg");
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            -webkit-background-origin: border-box;
+            background-origin: border-box;
+            background-clip: border-box;
+        }
+        div.style1 {
+            background-origin: content-box;
+            -webkit-background-clip: content-box;
+            -moz-background-clip: content-box;
+            background-clip: content-box;
+        }
+        div.style2 {
+            background-origin: padding-box;
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+        div.style3{
+            margin: 10px;
+            border: 1px solid #000;
+            background-image: url("../image/linyun.jpg"),url("../image/linyun.jpg"),url("../image/linyun.jpg");
+            -webkit-background-size: 30% 30%,60% 60%,100% 100%;
+            background-size: 30% 30%,60% 60%,100% 100%;
+        }
+        div.style4{
+            margin: 10px;
+            border: 1px solid #000;
+            background-image: url("../image/linyun.jpg");
+            -webkit-background-size: contain;
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="style4">内容从这里开始</div>
+    <div class="style3">内容从这里开始</div>
+    <div class="style1">内容从这里开始</div>
+    <div class="style2">内容从这里开始</div>
+    <div>内容从这里开始</div>
+</body>
+</html>
