@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>传统的div+css设计</title>
+    <style type="text/css">
+        #kuai,#hang {
+            background: silver;
+            border: 2px solid black;
+        }
+        span{
+            background: white;
+            display: block;
+            border: 0.5em dashed green;
+            padding: 1em;
+            margin: 0.5em;
+        }
+        span.yanse{
+            background: yellow;
+        }
+        #hang span{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>层的基本定位</p>
+        left:相当于窗口左边的位置<br>
+        right:相当于窗口右边的位置<br>
+        top:相当于窗口上边的位置<br>
+        bottom:相当于窗口下边的位置<br>
+        width:表示层的宽度<br>
+        height:表示层的高度<br>
+        position:用来控制采用什么样的方式定位图层：absolute,网页左上角为基准；relative,原始位置来设置；static,以HTML默认位置来设置<br>
+        <p style="font-size: 30px;">框模型</p>
+        padding:空距<br>
+        borders:边框(border-width:边框宽度；border-style:边框样式solid,dotted,dashed等；border-color:边框颜色)<br>
+        margin:边距<br>
+        display:定制框属性(block:块；inline:行；none:不显示)
+    </div>
+    <h2>块</h2>
+    <p id="kuai"><span>北京</span><span class="yanse">上海</span><span>香港</span><span class="yanse">海南</span></p>
+    <h2>行</h2>
+    <p id="hang"><span>北京</span><span class="yanse">上海</span><span>香港</span><span class="yanse">海南</span></p>
+</body>
+</html>
