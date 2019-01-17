@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框圆角属性border-radius</title>
+    <style type="text/css">
+        div{
+            width: 200px;
+            height: 80px;
+        }
+        div.style1{
+            background-color: #fe0;
+            border: 10px solid #f90;
+            border-radius: 20px/40px;
+        }
+        div.style2{
+            -webkit-border-image: url(../image/468_60.png) 30/30px repeat;
+            -moz-border-image: url(../image/468_60.png) 30/30px repeat;
+            -o-border-image: url(../image/468_60.png) 30/30px repeat;
+            border-image: url(../image/468_60.png) 30/30px repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="style1"></div>
+    <div class="style2"></div>
+</body>
+</html>
