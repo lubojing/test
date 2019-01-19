@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒布局</title>
+    <style type="text/css">
+        .container {
+            display: box;
+            display: -moz-box;
+            display: -webkit-box;
+            -moz-box-orient: vertical;
+            /*-webkit-box-orient: horizontal;*/
+            /*-webkit-box-direction: reverse;*/
+            -webkit-box-pack: start;
+            -webkit-box-align: end;
+        }
+        .container div {
+            color: #FFF;
+            font-size: 12px;
+            padding: 10px;
+            line-height: 20px;
+        }
+        .container div ul{
+            margin: 0;
+            padding-left: 20px;
+        }
+        .container .left-aside {
+            background-color: #f63;
+        }
+        .container .center-aside {
+            background-color: #390;
+            border: 2px solid #ccc;
+            width: 200px;
+        }
+        .container .right-aside {
+            background-color: #039;
+            outline: 2px solid #ccc;
+            outline-offset: 20px;
+            resize: both;
+            overflow: auto;
+        }
+        .container .right-aside input {
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+        }
+        .appearanceTest,input {
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-aside">
+            <h2>菜单</h2>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>活动沙龙</li>
+                <li>研发小组</li>
+            </ul>
+        </div>
+        <div class="center-aside">
+            <h2>内容</h2>
+            <p>盒布局是CSS3发展的新型布局方式，它比传统的浮动布局方式更加完善、更加灵活，而使用方法极为简单</p>
+        </div>
+        <div class="right-aside">
+            <h2>工具</h2>
+            <ul>
+                <li>天气预报</li>
+                <li>货币汇率</li>
+                <li><input type="text" name="ley" value="关键字"></li>
+            </ul>
+            <input type="text" name="ley" value="关键字">
+        </div>
+        <div class="appearanceTest">
+            <input type="text" name="ley" value="关键字">
+        </div>
+    </div>
+</body>
+</html>
