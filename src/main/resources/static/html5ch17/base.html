@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画与渐变</title>
+    <style type="text/css">
+        ul {
+            list-style: none;
+            line-height: 25px;
+            font-weight: bold;
+        }
+        li {
+            width: 120px;
+            margin: 2px;
+            border: 1px solid #ccc;
+            text-align: left;
+            background-color: #e4e4e4;
+        }
+        li:hover {
+            background-color: #999;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+        a:hover{
+            background-color: #f90;
+            color: #FFF;
+        }
+        a.style1:hover {
+            -webkit-transform: rotate(30deg);
+            -moz-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+            -o-transform: rotate(30deg);
+            transform: rotate(30deg);
+        }
+        a.style2:hover {
+            -webkit-transform: scale(1.5);
+            -moz-transform: scale(1.5);
+            -ms-transform: scale(1.5);
+            -o-transform: scale(1.5);
+            transform: scale(1.5);
+        }
+        a.style3:hover {
+            -webkit-transform: scale(0.8,-1.5);
+            -moz-transform: scale(0.8,-1);
+            -ms-transform: scale(0.8,-1);
+            -o-transform: scale(0.8,-1);
+            transform: scale(0.8,-1.5);
+        }
+        a.style4:hover {
+            -webkit-transform: translate(10px,15px);
+            -moz-transform: translate(10px,15px);
+            -ms-transform: translate(10px,15px);
+            -o-transform: translate(10px,15px);
+            transform: translate(10px,15px);
+        }
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a class="style1" href="#">rotate旋转</a></li>
+        <li><a class="style2" href="#">scale缩放</a></li>
+        <li><a class="style3" href="#">scale缩放翻转</a></li>
+        <li><a class="style4" href="#">translate移动</a></li>
+    </ul>
+</body>
+</html>
